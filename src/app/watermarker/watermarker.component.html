@@ -1,0 +1,207 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    id="drawer"
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [opened]="false"
+  >
+    <mat-toolbar class="wmText" style="margin-bottom: -1px">
+      <img class="companyLogo" src="assets/companyLogo.png" />
+    </mat-toolbar>
+    <mat-divider class="divider"></mat-divider>
+
+    <div id="addWMBtn" class="addWMBtn">
+      <input
+        hidden
+        type="file"
+        #imgFile
+        accept="image/*"
+        (change)="createWatermark($event)"
+      />
+      <button class="watermarkBtn" (click)="imgFile.click()">
+        Add Watermark
+      </button>
+      <mat-divider class="divider"></mat-divider>
+    </div>
+
+    <div class="watermarkInputs" id="watermarkInputs">
+      <div class="inputField">
+        <div class="inputGroup">X</div>
+        <input
+          class="inText"
+          [value]="getX()"
+          #X_pos
+          (input)="
+            setCoords(
+              X_pos.value,
+              Y_pos.value,
+              wm_W.value,
+              wm_H.value,
+              false,
+              true
+            )
+          "
+          type="number"
+          id="X_pos"
+          placeholder=""
+        />
+      </div>
+
+      <div class="inputField">
+        <div class="inputGroup">Y</div>
+        <input
+          class="inText"
+          [value]="getY()"
+          #Y_pos
+          (input)="
+            setCoords(
+              X_pos.value,
+              Y_pos.value,
+              wm_W.value,
+              wm_H.value,
+              false,
+              true
+            )
+          "
+          type="number"
+          id="Y_pos"
+          placeholder=""
+        />
+      </div>
+      <mat-divider class="divider"></mat-divider>
+
+      <div class="whContainer">
+        <div class="column">
+          <div class="inputField" style="width: 100px; padding-right: 0px">
+            <div class="inputGroup" style="width: 25px">W</div>
+            <input
+              class="inText"
+              [value]="getW()"
+              #wm_W
+              (input)="
+                setCoords(
+                  X_pos.value,
+                  Y_pos.value,
+                  wm_W.value,
+                  wm_H.value,
+                  true,
+                  false
+                )
+              "
+              type="number"
+              id="widthInput"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="column">
+          <button class="lockButton" (click)="lockUnlockWMRatio()">
+            <mat-icon
+              class="lockIcon"
+              [inline]="true"
+              [innerHTML]="lockState"
+            ></mat-icon>
+          </button>
+        </div>
+        <div class="column">
+          <div class="inputField" style="width: 100px; padding-left: 0px">
+            <div class="inputGroup" style="width: 25px">H</div>
+            <input
+              class="inText"
+              [value]="getH()"
+              #wm_H
+              (input)="
+                setCoords(
+                  X_pos.value,
+                  Y_pos.value,
+                  wm_W.value,
+                  wm_H.value,
+                  true,
+                  false
+                )
+              "
+              type="number"
+              id="heightInput"
+              placeholder=""
+            />
+          </div>
+        </div>
+      </div>
+
+      <mat-divider class="divider"></mat-divider>
+
+      <div class="inputField">
+        <div class="inputGroup">Rotate</div>
+        <input
+          class="inText"
+          [value]="getRotate()"
+          #rotation
+          (input)="setRotate(rotation.value)"
+          type="number"
+          id="rotateField"
+          placeholder=""
+        />
+      </div>
+
+      <div class="inputField">
+        <button
+          class="zoomButton"
+          style="border-top-right-radius: 0; border-bottom-right-radius: 0"
+          (click)="zoomOut()"
+        >
+          -
+        </button>
+        <input
+          class="inText"
+          value="{{ zoom }}"
+          type="text"
+          id="zoomField"
+          placeholder="100%"
+          style="
+            border-radius: 0px;
+            border-right-width: 0px;
+            text-align: center;
+            pointer-events: none;
+          "
+        />
+        <button
+          class="zoomButton"
+          style="border-top-left-radius: 0; border-bottom-left-radius: 0"
+          (click)="zoomIn()"
+        >
+          +
+        </button>
+        <button class="equalizeButton" (click)="equalize()">=</button>
+      </div>
+    </div>
+    <mat-divider class="divider"></mat-divider>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!-- MASTER VIEW -->
+    <mat-toolbar class="toolbar">
+      <button
+        class="sidenavToggle"
+        id="sidenavToggle"
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="toggleSideNav()"
+      >
+        <mat-icon class="drawerIcon" aria-label="Side nav toggle icon"
+          >menu</mat-icon
+        >
+      </button>
+
+      <button id="wmBtn" class="wmBtn" (click)="watermarkOnServer()">
+        Watermark
+      </button>
+      <span></span>
+    </mat-toolbar>
+    <div style="width: 100%; height:100%;">
+      <app-master-view id="masterView" #masterView></app-master-view>
+    </div>
+    <!-- MASTER VIEW -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

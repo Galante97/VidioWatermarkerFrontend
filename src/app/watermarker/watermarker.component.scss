@@ -1,0 +1,334 @@
+$text-color-inactive: #99a3ba;
+$element-border-color-inactive: #cdd9ed;
+$element-bg-color-inactive: #ecf2fe;
+$element-bg-color-active: #698bf1;
+
+$view-bg-color: #323232;
+$sidenav-right-border-color: #212121;
+
+$view-toolbar-color: #323232;
+$view-toolbar-border-color: #212121;
+
+$input-field-border-active: #3c6891;
+$input-field-bg: #1f1f1f;
+$input-field-bg-inner: #2b2b2b;
+$text-color: #c5c5c5;
+$text-color-active: white;
+
+$divider-color: #212121;
+
+$secondary-color: #7ab7f0;
+$secondary-color-active: #4376a5;
+
+.wmText {
+  color: $input-field-border-active;
+}
+.divider {
+  background-color: $divider-color;
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.drawerIcon {
+  color: $secondary-color;
+}
+
+.sidenav {
+  width: 300px;
+  background-color: $view-bg-color;
+  border-right-color: $sidenav-right-border-color;
+}
+.whContainer {
+  display: flex;
+}
+
+.app-master-view {
+  top: 64px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  align-items: center;
+  flex: 1;
+}
+
+.toolbar {
+  background-color: $view-toolbar-color;
+  border-bottom: $view-toolbar-border-color;
+  border-style: solid;
+  border-width: 0px;
+  border-bottom-width: 1px;
+  z-index: 1000;
+  position: fixed;
+
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.lockButton {
+  background-color: $input-field-bg;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  line-height: 38px;
+  font-size: 18px;
+  border-radius: 100%;
+  outline: none;
+  border-color: $input-field-border-active;
+  border-width: 1px;
+  margin-top: 12px;
+
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+
+  border-width: 1px;
+  border-style: solid;
+}
+.lockButton:active {
+  background-color: $input-field-border-active;
+  border: 1px solid $input-field-border-active;
+  color: $text-color-active;
+  outline: none;
+
+  border-width: 1px;
+  border-style: solid;
+}
+
+.lockIcon {
+  color: $text-color;
+}
+
+.inputField {
+  display: flex;
+  padding: 12px;
+}
+
+.inputField > .inText {
+  background: $input-field-bg-inner;
+  color: $text-color;
+}
+
+.inputField .inputGroup {
+  background-color: $input-field-bg;
+  width: 50px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: $input-field-border-active;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: $text-color;
+
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.inputField input,
+select {
+  flex: 1;
+  width: 65%;
+  height: 40px;
+  padding: 12px 20px;
+  display: inline-block;
+  border-style: solid;
+  font-size: 16px;
+  border-width: 1px;
+  border-left-width: 0px;
+  background-color: white;
+  border-color: $input-field-border-active;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.inputField input:focus {
+  border: 1px solid $input-field-border-active;
+  border-left-width: 0px;
+
+  outline: none;
+}
+
+.inputField:focus-within {
+  .inputGroup {
+    background-color: $input-field-border-active;
+    color: $text-color-active;
+    border: 1px solid $input-field-border-active;
+  }
+}
+
+.zoomButton {
+  background-color: $input-field-bg;
+  color: $text-color;
+
+  width: 50px;
+  height: 40px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  line-height: 35px;
+  font-size: 22px;
+  border-radius: 10px;
+  outline: none;
+  border-color: $input-field-border-active;
+  border-width: 1px;
+
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+
+  border-width: 1px;
+  border-style: solid;
+}
+.zoomButton:active {
+  background-color: $input-field-border-active;
+  border: 1px solid $input-field-border-active;
+  color: $text-color-active;
+  outline: none;
+}
+
+.equalizeButton {
+  background-color: $input-field-bg;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  line-height: 35px;
+  font-size: 18px;
+  border-radius: 100%;
+  outline: none;
+  border-color: $input-field-border-active;
+  border-width: 1px;
+  margin-left: 8px;
+
+  color: $text-color;
+
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+
+  border-width: 1px;
+  border-style: solid;
+}
+.equalizeButton:active {
+  background-color: $input-field-border-active;
+  border: 1px solid $input-field-border-active;
+  color: $text-color-active;
+  outline: none;
+
+  border-width: 1px;
+  border-style: solid;
+}
+
+.watermarkInputs {
+  pointer-events: none;
+  opacity: 0.5;
+  transition: all 0.5s ease-in-out;
+  height: 0px;
+  overflow: hidden;
+}
+
+.addWMBtn {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.companyLogo {
+  max-width: 70%;
+  margin-left: -10px;
+}
+
+.watermarkBtn {
+  display: block;
+  width: 268px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: $secondary-color;
+  color: white;
+  border-color: $secondary-color;
+  font-size: 18px;
+  outline: none;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+
+  border-width: 1px;
+  border-style: solid;
+}
+
+.watermarkBtn:active {
+  background-color: $input-field-border-active;
+  border: 1px solid $input-field-border-active;
+  color: $text-color-active;
+  outline: none;
+}
+
+.wmBtn {
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: $secondary-color;
+  border: 1px solid $secondary-color;
+  color: $text-color-active;
+  font-size: 18px;
+  margin-left: auto;
+  outline: none;
+  z-index: 1001;
+  position: fixed;
+  right: 15px;
+}
+
+.wmBtn:active {
+  background-color: $secondary-color-active;
+  border: 1px solid $secondary-color-active;
+  color: $text-color-active;
+
+  outline: none;
+}
+
+.sidenavToggle {
+  display: none;
+}
+
+@media screen and (max-width: 599px) {
+  .sidenavToggle {
+    display: block;
+  }
+}

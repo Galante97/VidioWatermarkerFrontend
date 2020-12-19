@@ -1,0 +1,50 @@
+<div *ngIf="isLoading" class="loadingState">
+  <h2 mat-dialog-title style="text-align: center">
+    Please wait while your video is processed!
+  </h2>
+
+  <mat-dialog-content class="matDialogContainer">
+    <div class="textContainer">
+      <p style="text-align: center">This could take several minutes...</p>
+    </div>
+    <div class="spinnerContainer">
+      <div class="spinnerSub">
+        <svg class="loader" viewBox="0 0 24 24">
+          <circle class="loader__value" cx="12" cy="12" r="10" />
+          <circle class="loader__value" cx="12" cy="12" r="10" />
+          <circle class="loader__value" cx="12" cy="12" r="10" />
+          <circle class="loader__value" cx="12" cy="12" r="10" />
+          <circle class="loader__value" cx="12" cy="12" r="10" />
+          <circle class="loader__value" cx="12" cy="12" r="10" />
+        </svg>
+      </div>
+    </div>
+  </mat-dialog-content>
+</div>
+
+<div *ngIf="isSuccess" class="SuccessState">
+  <div mat-dialog-actions>
+    <h2 mat-dialog-title style="text-align: center">
+      Video Successfully Processed!
+    </h2>
+  
+    <mat-dialog-content class="matDialogContainer">
+
+      <div class="spinnerContainer">
+       
+      </div>
+
+      <div class="textContainer">
+        <p  style="text-align: center">If your video did not automatically download, <a href="javascript:void(0)" (click)="download()">click here.</a></p>
+      </div>
+    </mat-dialog-content>
+
+
+  </div>
+</div>
+
+<div *ngIf="isFailure" class="failedState">
+  <div mat-dialog-actions>
+    <button class="mat-raised-button" (click)="close()">Close</button>
+  </div>
+</div>

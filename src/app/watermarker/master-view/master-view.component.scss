@@ -1,0 +1,196 @@
+$text-color-inactive: #99a3ba;
+$text-color-active: white;
+$element-border-color-inactive: #cdd9ed;
+$element-border-color-active: #5d85f8;
+$element-bg-color-inactive: #ecf2fe;
+$element-bg-color-active: #698bf1;
+
+
+$view-bg-color: #191919;
+
+$view-toolbar-color: #323232;
+$view-toolbar-border-color: #474747;
+
+$view-ruler-color:#2a2a2a;
+$view-ruler-border-color: #212121;
+
+$text-color: #c5c5c5;
+$cloud-icon:  #7ab7f0; 
+
+$btn-border-color:  #3c6891;
+$btn-background-color: #ffffff00;
+$btn-border-bg-active:#314960;
+
+
+
+.rulerContainer {
+  width: calc(100% - 30px);
+  height: calc(100% - 64px - 30px);
+  background-color: $view-bg-color;
+
+  padding-left: 30px;
+  padding-top: 30px;
+}
+
+/* MASTER VIEW */
+.master {
+  top: 64px; 
+  width: calc(100%);
+  height: calc(100%);
+  text-align: center;
+  background-color: $view-bg-color;
+  overflow: auto;
+  position: relative;
+  z-index: 0;
+  display: flex;
+}
+
+
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.ddVidContainer {
+  margin: auto;
+  flex: none;
+}
+
+.stdButton {
+  width: 160px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: $btn-background-color;
+  color: $text-color;
+  border-color: $btn-border-color;
+  font-size: 18px;
+  outline: none;
+
+  border-width: 1px;
+  border-style: solid;
+}
+
+.stdButton:active {
+  background-color: $btn-border-bg-active;
+  border: 1px solid $btn-border-bg-active;
+  color: $text-color-active;
+  outline: none;
+}
+
+.cloudIcon {
+  width: 100px;
+  height: 100px;
+  font-size: 100px;
+  color: $cloud-icon;
+}
+
+.dropText {
+  color: $text-color;
+}
+
+.videoThumbnailContainer {
+  overflow: hidden;
+
+  width: 0px;
+  height: 0px;
+  background-size: contain;
+
+  margin: auto;
+  flex: none;
+
+  -webkit-transition: all 0s ease-in-out;
+  -moz-transition: all 0s ease-in-out;
+  -o-transition: all 0s ease-in-out;
+  transition: all 0s ease-in-out;
+}
+
+.ruler {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.rulerConnecter {
+  margin-top: 64px; //toolbar height
+  position: fixed;
+  top: 0px;
+  z-index: 101;
+  width: 30px;
+  height: 30px;
+  background-color: $view-ruler-color;
+  border-color: $view-ruler-border-color;
+  border-width: 0px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-style: solid;
+}
+
+.ruler.horizontal {
+  z-index: 100;
+  margin-top: 64px; //toolbar height
+  left: 30px;
+  width: calc(100% - 30px);
+  height: 30px;
+  border-color: $view-ruler-border-color;
+  border-width: 0px;
+  border-bottom-width: 1px;
+  border-style: solid;
+  position: fixed;
+}
+.ruler.vertical {
+  z-index: 100;
+  margin-top: 64px; //toolbar height
+  top: 30px;
+  height: calc(100% - 30px - 64px);
+  width: 30px;
+  border-color: $view-ruler-border-color;
+  border-width: 0px;
+  border-right-width: 1px;
+  border-style: solid;
+  position: fixed;
+
+}
+
+.wmContainer {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  width: 200px;
+  height: 100px;
+}
+
+.wm {
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 599px) {
+  // mobile
+  .rulerContainer {
+    height: calc(100% - 56px - 30px);
+  }
+  .ruler.horizontal {
+    margin-top: 56px;
+  }
+
+  .ruler.vertical {
+    margin-top: 56px;
+    height: calc(100% - 30px - 56px);
+  }
+
+  .rulerConnecter {
+    margin-top: 56px;
+  }
+
+  .master {
+    top: 56px; 
+  }
+
+}

@@ -1,0 +1,32 @@
+<div class="rulerConnecter"></div>
+<div class="ruler horizontal"></div>
+<div id="vRuler" class="ruler vertical"></div>
+
+<div class="rulerContainer">
+  <div
+    class="master"
+    id="master"
+    (scroll)="onMasterScroll($event)"
+    appDnd
+    (fileDropped)="onFileDropped($event)"
+  >
+    <div id="videoThumbnailContainer" class="videoThumbnailContainer"></div>
+   
+    <div #target id="wmContainer" class="wmContainer">
+      <img id="wm_img" class="wm" [src]="imageSrc" />
+    </div>
+    <div class="ddVidContainer" id="ddVidContainer">
+      <mat-icon
+        class="cloudIcon"
+        aria-hidden="false"
+        aria-label="Example home icon"
+        >cloud_upload</mat-icon
+      >
+      <br />
+      <h2 class="dropText">Drop video to start or</h2>
+      <button (click)="prepareVideoAndThumbnail(null)" class="stdButton">
+        Click to Upload
+      </button>
+    </div>
+  </div>
+</div>
