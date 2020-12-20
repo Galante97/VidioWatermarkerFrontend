@@ -16,5 +16,5 @@ Every push to github will redeploy the application to docker and aws:
 ```
 git add .
 git commit -m ""
-git push -u origin master
+git push -u origin main
 ```

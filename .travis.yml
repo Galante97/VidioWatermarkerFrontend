@@ -6,7 +6,7 @@ dist: trusty
 
 branches:
   only:
-    - master
+    - main
 
 before_script:
   - npm install -g @angular/cli
