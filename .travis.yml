@@ -22,3 +22,5 @@ deploy:
   region: "us-elasticbeanstalk-1"
   skip_cleanup: true
   local_dir: dist/watermarker
+  on:
+      branch: main
