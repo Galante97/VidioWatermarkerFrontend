@@ -19,7 +19,7 @@ deploy:
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   bucket: "deep-vidio-watermarker"
-  region: "us-elasticbeanstalk-1"
+  region: "us-east-1"
   skip_cleanup: true
   local_dir: dist/watermarker
   on:
