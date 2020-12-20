@@ -12,7 +12,7 @@ before_script:
   - npm install -g @angular/cli
 
 script:
-  - ng build --prod
+  - ng build --prod --base-href http://deep-vidio-watermarker.s3-website-us-east-1.amazonaws.com/
 
 deploy:
   provider: s3
