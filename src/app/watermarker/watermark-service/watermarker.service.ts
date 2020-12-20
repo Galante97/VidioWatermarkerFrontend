@@ -7,8 +7,8 @@ import { throwError } from 'rxjs';
   providedIn: 'root',
 })
 export class WatermarkerService {
-  redisURL = 'http://deepvidioservice.eba-je7zb9id.us-east-1.elasticbeanstalk.com/';
-  // redisURL = 'http://localhost/';
+  // redisURL = 'http://deepvidioservice.eba-je7zb9id.us-east-1.elasticbeanstalk.com/';
+  redisURL = 'http://localhost/';
 
   constructor(private http: HttpClient) {}
 
@@ -48,15 +48,15 @@ export class WatermarkerService {
   }
 
   downloadWMFile(projectName: string, outputfileName: string) {
-   // const url =
-   //   this.redisURL + 'static/projects/' + projectName + '/' + outputfileName;
-   // console.log('DOWNLOAD HERE', url);
-   // return this.http.get(url, { responseType: 'blob' });
+    // const url =
+    //   this.redisURL + 'static/projects/' + projectName + '/' + outputfileName;
+    // console.log('DOWNLOAD HERE', url);
+    // return this.http.get(url, { responseType: 'blob' });
 
-    const url = this.redisURL + 'download/' + projectName + '/' + outputfileName;
+    const url =
+      this.redisURL + 'download/' + projectName + '/' + outputfileName;
     console.log('URL', url);
     return this.http.get(url, { responseType: 'blob' });
-
   }
 
   handleError(error: any): any {

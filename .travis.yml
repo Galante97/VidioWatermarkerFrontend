@@ -1,0 +1,25 @@
+os: linux
+language: node_js
+node_js:
+  - "14"
+dist: trusty
+
+branches:
+  only:
+    - master
+
+before_script:
+  - npm install -g @angular/cli
+
+script:
+  - ng lint
+  - ng build --prod --base-href http://deep-vidio-watermarker.s3-website-us-east-1.amazonaws.com/
+
+deploy:
+  provider: s3
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  bucket: "deep-vidio-watermarker"
+  region: "us-elasticbeanstalk-1"
+  skip_cleanup: true
+  local_dir: dist/watermarker
