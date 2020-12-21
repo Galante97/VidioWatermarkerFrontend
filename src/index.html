@@ -6,8 +6,8 @@
     <base href="/" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
-    <meta name='viewport' 
-    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"' />
+    <meta name='viewport' content="width=device-width, initial-scale=1,
+    maximum-scale=1, user-scalable=0"' />
 
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
@@ -17,6 +17,38 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+
+    <CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+      <CORSRule>
+        <AllowedOrigin>http://deepvid.io</AllowedOrigin>
+        <AllowedMethod>GET</AllowedMethod>
+        <MaxAgeSeconds>3000</MaxAgeSeconds>
+        <AllowedHeader>Content-*</AllowedHeader>
+        <AllowedHeader>Host</AllowedHeader>
+      </CORSRule>
+      <CORSRule>
+        <AllowedOrigin>http://*.deepvid.io</AllowedOrigin>
+        <AllowedMethod>GET</AllowedMethod>
+        <MaxAgeSeconds>3000</MaxAgeSeconds>
+        <AllowedHeader>Content-*</AllowedHeader>
+        <AllowedHeader>Host</AllowedHeader>
+      </CORSRule>
+      <CORSRule>
+        <AllowedOrigin>https://deepvid.io</AllowedOrigin>
+        <AllowedMethod>GET</AllowedMethod>
+        <MaxAgeSeconds>3000</MaxAgeSeconds>
+        <AllowedHeader>Content-*</AllowedHeader>
+        <AllowedHeader>Host</AllowedHeader>
+      </CORSRule>
+      <CORSRule>
+        <AllowedOrigin>https://*.deepvid.io</AllowedOrigin>
+        <AllowedMethod>GET</AllowedMethod>
+        <MaxAgeSeconds>3000</MaxAgeSeconds>
+        <AllowedHeader>Content-*</AllowedHeader>
+        <AllowedHeader>Host</AllowedHeader>
+      </CORSRule>
+    </CORSConfiguration>
+
     <script>
       var global = global || window;
     </script>
