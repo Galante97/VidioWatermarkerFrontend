@@ -23,4 +23,4 @@ deploy:
   skip_cleanup: true
   local_dir: dist/watermarker
   on:
-      branch: main
+      branch: main 
