@@ -7,8 +7,10 @@ import { throwError } from 'rxjs';
   providedIn: 'root',
 })
 export class WatermarkerService {
-  redisURL = 'http://deepvidioservice.eba-je7zb9id.us-east-1.elasticbeanstalk.com/';
-  //redisURL = 'http://localhost/';
+  // redisURL = 'http://deepvidioservice.eba-je7zb9id.us-east-1.elasticbeanstalk.com/';
+  // redisURL = 'http://localhost/';
+  redisURL = 'https://api-prod.deepvid.io/';
+
 
   constructor(private http: HttpClient) {}
 
