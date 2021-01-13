@@ -497,7 +497,7 @@ export class MasterViewComponent implements OnInit {
       .then((videoFile) => {
         this.videoFile = videoFile;
 
-        console.log('THen video file', this.videoFile);
+        console.log('Then video file', this.videoFile);
 
         if (this.videoFile.size > 200000000) {
           fileToBig = true;
@@ -508,6 +508,7 @@ export class MasterViewComponent implements OnInit {
       })
       .then((thumbnailData) => {
         if (!fileToBig) {
+
           this.videoThumbnailData = thumbnailData[0];
 
           const vidW = thumbnailData[1];

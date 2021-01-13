@@ -6,10 +6,7 @@ export class VideoProcessingService {
   constructor(@Inject(DOCUMENT) private document: Document) {}
 
   public promptForVideo(file: any): Promise<File> {
-    console.log('FILE', file);
-
     if (file) {
-      console.log('if file');
       return new Promise<File>((resolve, reject) => {
         resolve(file);
       });
@@ -18,26 +15,22 @@ export class VideoProcessingService {
     console.log('promptForVideo');
 
     return new Promise<File>((resolve, reject) => {
-      console.log('return promise');
-
-      // make file input element in memory
-      const fileInput: HTMLInputElement = this.document.createElement('input');
-      fileInput.type = 'file';
-      fileInput.accept = 'video/*';
-      // fileInput.setAttribute('capture', 'camera');
-      // fileInput['capture'] = 'camera';
-
-      console.log('fileInput', fileInput);
-
+      const fileInput = this.document.getElementById(
+        'fileSelectInput'
+      ) as HTMLInputElement;
 
       fileInput.addEventListener('error', (event) => {
-        console.log('reject', event.error);
         reject(event.error);
       });
-      fileInput.addEventListener('change', (event) => {
+
+      fileInput.addEventListener('input', (event) => {
         console.log('RESOLVE', fileInput.files[0]);
         resolve(fileInput.files[0]);
+
+        const element = event.target as HTMLInputElement;
+        element.value = '';
       });
+
       // prompt for video file
       fileInput.click();
     });
