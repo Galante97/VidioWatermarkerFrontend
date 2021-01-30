@@ -483,6 +483,8 @@ export class MasterViewComponent implements OnInit {
    * @param files (Files List)
    */
   prepareVideoAndThumbnail(files: Array<any>) {
+    console.log('FILES', files);
+
     let currFile;
     if (files == null) {
       currFile = null;
@@ -502,13 +504,13 @@ export class MasterViewComponent implements OnInit {
         if (this.videoFile.size > 200000000) {
           fileToBig = true;
           alert('Sorry, we only currently support video files under 200mb');
+          location.reload();
         }
 
         return this.videoService.generateThumbnail(videoFile);
       })
       .then((thumbnailData) => {
         if (!fileToBig) {
-
           this.videoThumbnailData = thumbnailData[0];
 
           const vidW = thumbnailData[1];

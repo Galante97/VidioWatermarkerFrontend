@@ -6,8 +6,8 @@
     <base href="/" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
-    <meta name='viewport' 
-    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"' />
+    <meta name='viewport' content="width=device-width, initial-scale=1,
+    maximum-scale=1, user-scalable=0"' />
 
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
@@ -18,11 +18,33 @@
       rel="stylesheet"
     />
 
-    
-
     <script>
       var global = global || window;
     </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-6G2PGZ8CYL"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-6G2PGZ8CYL");
+    </script>
+    <script type="text/javascript">
+      window._mNHandle = window._mNHandle || {};
+      window._mNHandle.queue = window._mNHandle.queue || [];
+      medianet_versionId = "3121199";
+    </script>
+    <script
+      src="https://contextual.media.net/dmedianet.js?cid=8CUOVU77C"
+      async="async"
+    ></script>
   </head>
   <body class="mat-typography">
     <app-root></app-root>

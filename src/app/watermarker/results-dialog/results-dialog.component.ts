@@ -37,6 +37,7 @@ export class ResultsDialogComponent implements OnInit {
 
     console.log();
     console.log('this.filemetadata', this.fileMetadata);
+    console.log('this.filemetadata2', this.getBaseFileType());
     console.log('this.videoFile', this.videoFile);
     console.log('this.imgFile', this.imgFile);
     console.log();
@@ -86,8 +87,9 @@ export class ResultsDialogComponent implements OnInit {
         }, 5000);
       } else {
         console.log('--JOB COMPLETE--');
+
         this.watermarkerService
-          .downloadWMFile(projectName, 'output.mp4')
+          .downloadWMFile(projectName, 'output.' + this.getBaseFileType())
           .subscribe((blob) => {
             this.isLoading = false;
             this.isSuccess = true;
@@ -97,15 +99,6 @@ export class ResultsDialogComponent implements OnInit {
             this.objectUrl = URL.createObjectURL(blob);
 
             this.download();
-
-            /*setTimeout(() => {
-              const clickHereBtn = document.getElementById(
-                'downloadLink'
-              ) as HTMLCollectionOf<HTMLElement>[0];
-              console.log(clickHereBtn);
-
-              clickHereBtn.setAttribute('href', objectUrl);
-            }, 100); */
           });
       }
     });
@@ -115,12 +108,21 @@ export class ResultsDialogComponent implements OnInit {
     const a = document.createElement('a');
     console.log('objectUrl: ' + this.objectUrl);
     a.href = this.objectUrl;
-    a.download = 'output.mp4';
+    a.download = 'output.' + this.getBaseFileType();
     a.click();
-    //URL.revokeObjectURL(this.objectUrl);
   }
 
   close() {
     this.dialogRef.close();
+  }
+
+  getBaseFileType() {
+    const fileList = this.fileMetadata.IWatermaker.files;
+
+    for (const fle in fileList) {
+      if (fileList[fle].isBaseFile === true) {
+        return fileList[fle].fileType;
+      }
+    }
   }
 }
